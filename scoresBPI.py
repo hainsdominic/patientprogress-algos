@@ -2,13 +2,14 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 
+#@feature Compile les scores du BPI: la douleur et l'invalidité
+#@vision Affiche ces scores sous forme de graphique
+
 # Ouvre le fichier de type JSON
 with open("patient.json") as fichier:
   data = json.load(fichier)
 
-## Score BPI douleur et invalidité
-
-#Recupere les scores des BPI (Pain & invalidité) et les mets dans un liste
+#@cr Compile les scores du BPI et la date et les mets dans des listes
 
 sommesPain = []
 sommesInvalidity = []
@@ -24,7 +25,8 @@ for questionnaire in data["questionnaires"]:
     dates.append(questionnaire["time"].split('T')[0])
     
 
-## Dessine les graphiques 
+#@cr Affiche les graphiques
+
 plt.subplot(1, 2, 1)
 axes = plt.gca()
 axes.set_ylim([0,40])
@@ -45,6 +47,3 @@ plt.grid(True)
 
 plt.tight_layout()
 plt.show()
-
-#évolution entre les 2 derniers BPI et le temps (graphique)
-
