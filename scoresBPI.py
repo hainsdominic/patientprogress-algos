@@ -22,6 +22,7 @@ for questionnaire in data["questionnaires"]:
     sommesPain.append(reponses[[0,1,2,3]].sum())
     # ajoute le bpi invalidité a la liste
     sommesInvalidity.append(reponses[[4,5,6,7,8,9,10]].sum())
+    # ajoute la date invalidité a la liste
     dates.append(questionnaire["time"].split('T')[0])
     
 
@@ -34,7 +35,6 @@ plt.title('Douleur du BPI selon la date')
 plt.plot(dates, sommesPain, color='red', marker='o')
 plt.xlabel('Date')
 plt.ylabel('Douleur')
-plt.grid(True)
 
 plt.subplot(1, 2, 2)
 axes = plt.gca()
@@ -43,7 +43,6 @@ plt.title("Invalidité du BPI selon la date")
 plt.plot(dates, sommesInvalidity, color='red', marker='o')
 plt.xlabel('Date')
 plt.ylabel('Invalidité')
-plt.grid(True)
 
 plt.tight_layout()
 plt.show()
